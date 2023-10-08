@@ -3,7 +3,9 @@ from django.contrib import admin
 from django.utils import timezone
 from django.utils.html import format_html
 from django.contrib.auth import get_user_model
+
 # Create your models here.
+
 User = get_user_model() # добываем модель пользователя
 
 class Advertisements(models.Model):

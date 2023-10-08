@@ -8,7 +8,7 @@ class AdvertisementsAdmin(admin.ModelAdmin):
     actions = ['make_auction_false','make_auction_true']
     fieldsets = (
         ('Общее', {
-            'fields': ('title', 'description')
+            'fields': ('title', 'description', 'user')
         }),
         ('Финансы', {
             'fields': ('price', 'auction'),

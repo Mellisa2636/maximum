@@ -21,7 +21,7 @@ def adv_post(request):
     if request.method == 'POST':
         form = AdvertisementForms(request.POST, request.FILES)  
         if form.is_valid():  
-            advertisement = Advertisements(**form.cleaned_data)  
+            advertisement = form.save(commit=False)  
             advertisement.user=request.user
             advertisement.save()
             url = reverse('main_page')  
