@@ -8,13 +8,13 @@ User = get_user_model() # добываем модель пользователя
 
 class Advertisements(models.Model):
     title = models.CharField(verbose_name='Заголовок',  max_length=128) # charhield - текстовое поле
-    description = models.TextField('Описание') #
+    description = models.TextField('Описание') # обычный текст 
     price = models.DecimalField('Цена', max_digits=10, decimal_places=2) #digits - всего цифер; places - цифер после запятой
     auction = models.BooleanField('Торг', help_text='Отметьте, если торг уместен')
     created_at = models.DateTimeField(auto_now_add=True) # auto_now_ add - время добавления автоматически
     updated_at = models.DateTimeField(auto_now=True) # auto_now - время изменения автоматически
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name='Пользователь') # расширили модель
-    image = models.ImageField(verbose_name='Изображение', upload_to='advertisements/') #
+    image = models.ImageField(verbose_name='Изображение', upload_to='advertisements/') # картинка
 
 
 
