@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Advertisements
 from .forms import AdvertisementForms
 from django.urls import reverse
@@ -14,7 +14,11 @@ def index(request):
 def top_sellers(request):
     return render(request, 'top-sellers.html')
 
+
+
 def adv_post(request):
+    form = AdvertisementForms()  
+
     if request.method == 'POST':
         form = AdvertisementForms(request.POST, request.FILES)  
         if form.is_valid():  
@@ -27,4 +31,3 @@ def adv_post(request):
             form = AdvertisementForms()
     context = {'form': form}
     return render(request, 'advertisement-post.html', context)
-
