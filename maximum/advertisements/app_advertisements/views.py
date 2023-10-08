@@ -18,7 +18,6 @@ def top_sellers(request):
 
 def adv_post(request):
     form = AdvertisementForms()  
-
     if request.method == 'POST':
         form = AdvertisementForms(request.POST, request.FILES)  
         if form.is_valid():  
