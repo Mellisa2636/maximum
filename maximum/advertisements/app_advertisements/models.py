@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.utils import timezone
 from django.utils.html import format_html
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 # Create your models here.
 
@@ -44,5 +45,10 @@ class Advertisements(models.Model):
     def __str__(self):
         return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
 
+    def get_absolute_url(self):
+            return reverse('adv_detail', kwargs={'pk': self.pk})
+
     class Meta:
         db_table = "advertisements"
+
+        

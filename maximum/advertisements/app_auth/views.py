@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
+from app_auth.forms import UserForm
 
 # Create your views here.
-
-from django.urls import reverse, reverse_lazy
 
 @login_required(login_url=reverse_lazy('login'))
 def profile(request):
@@ -29,6 +29,7 @@ def login_view(request):
 def logout_view(request):
     logout(request) # выходим
     return redirect(reverse('login'))
+
 
 def register(request):
     if request.method == "POST":
